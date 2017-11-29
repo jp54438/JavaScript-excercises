@@ -1,0 +1,49 @@
+<!--
+50. Lets move to browser world for now. Take the following template and open it in Chrome. Open view → developer → javascript console to see the console. Now
+  a) By using for in iterate all the keys and values of `window` - object
+  b) Create new global variable and see that it is under `window` 
+  c) Try creating global variable with `var` keyword and without it. When using latter, you can delete that property from window! Try it out
+  d) Create new construction function for Circle. Circle has radius: `var c = new Circle(4); console.log(c.radius)`. What happens if you do not use the `new` - keyword?
+-->
+
+  <!DOCTYPE html>
+ <html>
+   <head>
+     <title>
+       Title
+     </title>
+     
+     <meta charset="UTF-8" />
+   </head>
+   
+   <body>
+     <script>
+        console.log("hello world");
+        myGlobalVariable = 10;
+        var myGlobalVariable_var = 20;
+
+        for(let item in window){
+          console.log(item);
+          console.log(window[item]);
+        }
+        delete myGlobalVariable_var;
+        delete myGlobalVariable;
+
+        for(let item in window){
+          console.log(item);
+          console.log(window[item]);
+        }
+        function Circle(r){
+          this.radius = r;
+        }
+        
+        var circle = new Circle(4);
+        console.log(circle.radius);
+
+        //ei toimi ilman new:ta. Tulee virhe Uncaught TypeError: Cannot read property 'radius' of undefined
+        /*var circle =  Circle(4);
+        console.log(circle.radius);*/
+
+     </script>  
+   </body>
+ </html>
